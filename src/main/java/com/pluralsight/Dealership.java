@@ -9,14 +9,17 @@ public class Dealership {
     private String name;
    private String address;
    private String phone;
-    private ArrayList<Vehicle> inventory;
+   private ArrayList<Vehicle> inventory;
+
+
 //CONSTRUCTOR.
-    public Dealership(String name, String address, String phone, ArrayList<Vehicle> inventory ){
+    public Dealership(String name, String address, String phone ){
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.inventory = inventory;
     }
+
 
 //Create getters and setters.
 
@@ -53,6 +56,17 @@ public class Dealership {
         this.inventory = inventory;
     }
 
-    //public Dealership
+//    public Dealership(){
+//
+//    }
 
+    public void addVehicle(Vehicle vehicle){
+        inventory.add(vehicle);
+
+    }
+
+    public ArrayList<Vehicle> getAllVehicles() {
+        return inventory;
+    }
 }
+

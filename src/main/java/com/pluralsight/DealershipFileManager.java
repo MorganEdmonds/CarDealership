@@ -24,7 +24,6 @@ public class DealershipFileManager {
             String input = bufReader.readLine();
                 // first line: dealership info =>
                 // D & B Used Cars|111 Old Benbrook Rd|817-555-5555
-                //if(isFirstLine == true) {
                     // split input into parts by "|"
 
                     String[] dealerInfo = input.split("\\|");
@@ -41,7 +40,7 @@ public class DealershipFileManager {
                     // each line represents one Vehicle
 
                     //10112|1993|Ford|Explorer|SUV|Red|525123|995.00
-                    // split input into parts by "!"
+                    // split input into parts by "|"
                     String[] vehicleInfo = input.split("\\|");
 
                     // String name, String vehicleType, String color, int vin, int year, int odometer, double price
@@ -54,14 +53,17 @@ public class DealershipFileManager {
                     int odo = Integer.parseInt(vehicleInfo[5]);
                     double price = Double.parseDouble(vehicleInfo[6]);
 
+
+
             bufReader.close();
                 } catch(IOException e) {
             // display stack trace if there was an error
             e.printStackTrace();
 
-
-
             // close the stream and release the resources
+
+
+
 
         }
 
