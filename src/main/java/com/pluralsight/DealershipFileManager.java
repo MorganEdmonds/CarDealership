@@ -11,27 +11,33 @@ public class DealershipFileManager {
 
             // create a BufferedReader to manage input stream
             BufferedReader bufReader = new BufferedReader(fileReader);
-            String input;
+            //String input;
 
-            // mark whether its reading the first line
+            // mark whether it's reading the first line
             // to start, the value is true
-            boolean isFirstLine = true;
+            //boolean isFirstLine = true;
+
+            //input = bufReader.readLine();
+            //do something with the first line which is already in input...
 
             // read until there is no more data
-            while ((input = bufReader.readLine()) != null) {
+            String input = bufReader.readLine();
                 // first line: dealership info =>
                 // D & B Used Cars|111 Old Benbrook Rd|817-555-5555
-                if(isFirstLine == true) {
+                //if(isFirstLine == true) {
                     // split input into parts by "|"
+
                     String[] dealerInfo = input.split("\\|");
-                    String name = dealerInfo[0];
+                    String dealershipName = dealerInfo[0];
                     String address = dealerInfo[1];
                     String phoneNumber = dealerInfo[2];
+
+
                     //name
                     //address
                     //phone
-                    isFirstLine = false;
-                } else {
+                    //isFirstLine = false;
+                //} else {
                     // each line represents one Vehicle
 
                     //10112|1993|Ford|Explorer|SUV|Red|525123|995.00
@@ -43,23 +49,25 @@ public class DealershipFileManager {
                     int vin = Integer.parseInt(vehicleInfo[0]);
                     int year = Integer.parseInt(vehicleInfo[1]);
                     String type = vehicleInfo[2];
-                    String name = vehicleInfo[3];
+                    String vehicleName = vehicleInfo[3];
                     String color = vehicleInfo[4];
                     int odo = Integer.parseInt(vehicleInfo[5]);
                     double price = Double.parseDouble(vehicleInfo[6]);
-                }
-            }
+
+            bufReader.close();
+                } catch(IOException e) {
+            // display stack trace if there was an error
+            e.printStackTrace();
+
 
 
             // close the stream and release the resources
-            bufReader.close();
+
         }
-        catch(IOException e) {
-            // display stack trace if there was an error
-            e.printStackTrace();
+
         }
     }
-}
+
 
 
 

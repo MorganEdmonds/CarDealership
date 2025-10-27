@@ -13,5 +13,22 @@ public class Program {
             // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
             System.out.println("i = " + i);
         }
+
+
+        //create a vehicle
+        //display it
+
+
+        //create a dealership
+        //add the vehicle to it
+        //add a few more
+        //test out the getAllVehicles()
+        //test out 1 search
+        //each time list out things in a primitive loop...
+
+        //create a file manager and use it to product a dealership,
+        //test it in similar ways to how you tested the above one...
+
+
     }
 }

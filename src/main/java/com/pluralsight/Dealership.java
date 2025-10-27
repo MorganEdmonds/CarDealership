@@ -52,4 +52,7 @@ public class Dealership {
     public void setInventory(ArrayList<Vehicle> inventory) {
         this.inventory = inventory;
     }
+
+    //public Dealership
+
 }
