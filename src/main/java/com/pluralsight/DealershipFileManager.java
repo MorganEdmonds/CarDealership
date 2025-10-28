@@ -48,7 +48,7 @@ public class DealershipFileManager {
                 String[] vehicleInfo = readLineFromFile.split("\\|");
 
                 // String name, String vehicleType, String color, int vin, int year, int odometer, double price
-                // to call helper place semi colon at the end first.
+                // to call helper place semicolon at the end first.
                 int vin = Integer.parseInt(vehicleInfo[0]);
                 int year = Integer.parseInt(vehicleInfo[1]);
                 String make = vehicleInfo[2];
