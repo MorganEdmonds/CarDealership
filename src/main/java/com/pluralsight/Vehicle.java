@@ -6,29 +6,30 @@ public class Vehicle {
 
     private int vin;
     private int year;
-    private String name;
+    private String make;
+    private String model;
     private String vehicleType;
     private String color;
     private int odometer;
     private double price;
 
 
-    // Create methods for each
 
-    public Vehicle (String name, String vehicleType, String color, int vin, int year, int odometer, double price){
-
-        // CONSTRUCTOR.
+    public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, double price) {
         this.vin = vin;
         this.year = year;
-        this.name = name;
+        this.make = make;
+        this.model = model;
         this.vehicleType = vehicleType;
         this.color = color;
         this.odometer = odometer;
         this.price = price;
-
     }
 
-    //Create getters and setters.
+
+
+    //Constructor
+
 
     public int getVin() {
         return vin;
@@ -46,12 +47,20 @@ public class Vehicle {
         this.year = year;
     }
 
-    public String getName() {
-        return name;
+    public String getMake() {
+        return make;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public String getVehicleType() {
@@ -91,11 +100,15 @@ public class Vehicle {
         return "Vehicle{" +
                 "vin=" + vin +
                 ", year=" + year +
-                ", name='" + name + '\'' +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
                 ", vehicleType='" + vehicleType + '\'' +
                 ", color='" + color + '\'' +
                 ", odometer=" + odometer +
                 ", price=" + price +
                 '}';
     }
-}
+
+
+    }
+

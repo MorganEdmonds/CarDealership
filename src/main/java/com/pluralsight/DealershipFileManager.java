@@ -4,7 +4,12 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class DealershipFileManager {
-    public void readDealershipFile() {
+
+
+    public Dealership getDealershipFile() {
+
+        Dealership dealership = null;
+
         try {
             // create a FileReader object connected to the File
             FileReader fileReader = new FileReader("Inventory.csv");
@@ -13,62 +18,62 @@ public class DealershipFileManager {
             BufferedReader bufReader = new BufferedReader(fileReader);
             //String input;
 
-            // mark whether it's reading the first line
-            // to start, the value is true
-            //boolean isFirstLine = true;
 
             //input = bufReader.readLine();
             //do something with the first line which is already in input...
 
             // read until there is no more data
-            String input = bufReader.readLine();
-                // first line: dealership info =>
-                // D & B Used Cars|111 Old Benbrook Rd|817-555-5555
-                    // split input into parts by "|"
+            String readLineFromFile;
+            readLineFromFile = bufReader.readLine();
 
-                    String[] dealerInfo = input.split("\\|");
-                    String dealershipName = dealerInfo[0];
-                    String address = dealerInfo[1];
-                    String phoneNumber = dealerInfo[2];
+            // first line: dealership info =>
 
+            // split input into parts by "|"
 
-                    //name
-                    //address
-                    //phone
-                    //isFirstLine = false;
-                //} else {
-                    // each line represents one Vehicle
+            String[] dealerInfo = readLineFromFile.split("\\|");
+            String dealershipName = dealerInfo[0];
+            String dealershipAddress = dealerInfo[1];
+            String dealershipPhoneNumber = dealerInfo[2];
 
-                    //10112|1993|Ford|Explorer|SUV|Red|525123|995.00
-                    // split input into parts by "|"
-                    String[] vehicleInfo = input.split("\\|");
-
-                    // String name, String vehicleType, String color, int vin, int year, int odometer, double price
-                    // to call helper place semi colon at the end first.
-                    int vin = Integer.parseInt(vehicleInfo[0]);
-                    int year = Integer.parseInt(vehicleInfo[1]);
-                    String type = vehicleInfo[2];
-                    String vehicleName = vehicleInfo[3];
-                    String color = vehicleInfo[4];
-                    int odo = Integer.parseInt(vehicleInfo[5]);
-                    double price = Double.parseDouble(vehicleInfo[6]);
+            dealership = new Dealership(dealershipName, dealershipAddress, dealershipPhoneNumber);
 
 
+            // each line represents one Vehicle
 
-            bufReader.close();
-                } catch(IOException e) {
-            // display stack trace if there was an error
-            e.printStackTrace();
+
+            // split input into parts by "|"
+
+            while ((readLineFromFile = bufReader.readLine()) != null) {
+
+                String[] vehicleInfo = readLineFromFile.split("\\|");
+
+                // String name, String vehicleType, String color, int vin, int year, int odometer, double price
+                // to call helper place semi colon at the end first.
+                int vin = Integer.parseInt(vehicleInfo[0]);
+                int year = Integer.parseInt(vehicleInfo[1]);
+                String make = vehicleInfo[2];
+                String model = vehicleInfo[3];
+                String vehicleType = vehicleInfo[4];
+                String color = vehicleInfo[5];
+                int odometer = Integer.parseInt(vehicleInfo[6]);
+                double price = Double.parseDouble(vehicleInfo[7]);
+
+                Vehicle vehicleToAdd = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+
+                dealership.addVehicle(vehicleToAdd);
+            }
 
             // close the stream and release the resources
+            bufReader.close();
 
+            } catch (IOException e) {
+                // display stack trace if there was an error
+                e.printStackTrace();
+            }
+        return dealership;
 
-
-
-        }
-
-        }
     }
+}
 
 
 
