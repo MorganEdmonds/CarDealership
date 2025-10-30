@@ -20,7 +20,7 @@ public class UserInterface {
 
     public void display(){
         init();
-        Scanner scanner = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 
         while(true){
             System.out.print("\n======= DEALERSHIP MENU=======");
@@ -37,7 +37,7 @@ public class UserInterface {
             System.out.print("\nEnter your choice: ");
 
 
-            int choice = scanner.nextInt();
+            int choice = InputCollector.promptForInt("Enter a number command");
 
             // processPriceRequest; {
 
@@ -79,18 +79,23 @@ public class UserInterface {
             }
         }
    }
-
+        //TODO
     private void processRemoveVehicleRequest() {
         System.out.print("what is the VIN number?: ");
         int vin = InputCollector.promptForInt("Enter VIN to remove: ");
+
+
+        //for loop to look through ALL vehicles in dealership
+        //if one matches the vin given then remove it.
+        //if you can't find it , say so.
 
         dealership.removeVehicle(vin);
         System.out.println("Vehicle removed successfully!");
     }
 
     private void processAddVehicleRequest()  {
+        System.out.print("what is the VIN number?: ");
         int vin = InputCollector.promptForInt("Enter VIN to add");
-          System.out.print("what is the VIN number?: ");
 
         int year = InputCollector.promptForInt("Enter year");
              System.out.print("what is the year?: ");
@@ -113,7 +118,7 @@ public class UserInterface {
         double price = InputCollector.promptForDouble("enter a price");
                     System.out.print("what is the price?: ");
 
-                    Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+        Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
          dealership.addVehicle(vehicle);
          System.out.println("Vehicle successfully added!");
 
@@ -139,8 +144,8 @@ public class UserInterface {
     }
 
     private void processColorRequest() {
-           System.out.print("What is the color of the vehicle?");
            String color = InputCollector.promptForString("Enter color");
+        System.out.print("What is the color of the vehicle?");
 
         ArrayList<Vehicle> vehiclesByColor = dealership.getVehiclesByColor(color);
         displayVehicles(vehiclesByColor);
@@ -170,13 +175,14 @@ public class UserInterface {
     private void processPriceRequest() {
         System.out.print("What is the minimum price?: ");
         double min = InputCollector.promptForDouble("Enter minimum price: ");
-        System.out.print("What is the maximum price: ");
 
+        System.out.print("What is the maximum price: ");
         double max = InputCollector.promptForDouble("Enter maximum price: ");
         ArrayList<Vehicle> vehicles = dealership.getVehiclesByPrice(min, max);
         displayVehicles(vehicles);
     }
 
+    //this method could be help when trying to remove vehicle
     private void processAllVehiclesRequest() {
         ArrayList<Vehicle> vehicle = dealership.getAllVehicles();
         displayVehicles(vehicle);
@@ -195,13 +201,7 @@ public class UserInterface {
                     + "|" + vehicle.getColor()
                     + "|" + vehicle.getOdometer()
                     + "|" +vehicle.getPrice());
-
         }
-
-
-
-
-
     }
     
 }

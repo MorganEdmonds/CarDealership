@@ -74,6 +74,14 @@ public class DealershipFileManager {
 
     }
 
+    //use filewriter
+    //try and catch
+    //needs parameter so the method knows what to work with
+    //TODO add locgic of saving dealership
+    public void saveDealership(){
+
+    }
+
     //public Dealership getDealership() {
     //}
 }

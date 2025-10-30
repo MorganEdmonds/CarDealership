@@ -11,13 +11,7 @@ public class Dealership {
    private String address;
    private String phone;
    private ArrayList<Vehicle> inventory;
-   //private ArrayList<Vehicle> getVehiclesByPrice;
-   // private ArrayList<Vehicle> getVehiclesByMakeModel;
-   // private ArrayList<Vehicle> getVehiclesByYear;
-    //private ArrayList<Vehicle> getVehiclesByColor;
-    //private ArrayList<Vehicle> getVehiclesByMileage;
-    //private ArrayList<Vehicle> getVehiclesByType;
-   // private Object removeVehicle;
+
 
 //CONSTRUCTOR.
     public Dealership(String name, String address, String phone ){
@@ -65,6 +59,8 @@ public class Dealership {
         this.inventory = inventory;
     }
 
+
+    //User Interface methods
     public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
 
@@ -73,39 +69,71 @@ public class Dealership {
     public ArrayList<Vehicle> getAllVehicles() {
         return inventory;
     }
-
+        //todo
     public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
-        return null;
+
+        //make a new "Array list that has all the vehicles with the min and max that is asked for"
+        ArrayList<Vehicle> matchingVehicles = new ArrayList<>();
+
+        //look through your existing vehicle inventory and if the chisels match then add them to the list
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getPrice() >= min && vehicle.getPrice() <= max) {
+                matchingVehicles.add(vehicle);
+
+            }
+
+        }
+        return matchingVehicles;
+
     }
 
+
+            //TODO
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return null;
+
+        ArrayList<Vehicle> matchingVehicles = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getMake().equalsIgnoreCase(model) &&
+                    vehicle.getModel().equalsIgnoreCase(model)) {
+                matchingVehicles.add(vehicle);
+
+            }
+            //return null;
+        }
+        return matchingVehicles;
     }
 
+    //TODO
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
+        for(Vehicle vehicle: inventory ){
+            if (vehicle.get
+        }
 
         return null;
     }
-
+            //TODO
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
 
 
         return null;
     }
-
+    //TODO
     public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
 
         return null;
-    }
 
+    }
+    //TODO
     public ArrayList<Vehicle> getVehiclesByType(String type) {
 
         return null;
     }
 
-    public Object removeVehicle(int vin) {
+    //todo turn void and has no parameters
+    public void removeVehicle(int vin) {
 
-        return null;
+
     }
 
 
