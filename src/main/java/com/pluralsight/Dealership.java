@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Dealership {
 
@@ -10,7 +11,13 @@ public class Dealership {
    private String address;
    private String phone;
    private ArrayList<Vehicle> inventory;
-
+   private ArrayList<Vehicle> getVehiclesByPrice;
+    private ArrayList<Vehicle> getVehiclesByMakeModel;
+    private ArrayList<Vehicle> getVehiclesByYear;
+    private ArrayList<Vehicle> getVehiclesByColor;
+    private ArrayList<Vehicle> getVehiclesByMileage;
+    private ArrayList<Vehicle> getVehiclesByType;
+    private Object removeVehicle;
 
 //CONSTRUCTOR.
     public Dealership(String name, String address, String phone ){
@@ -18,6 +25,14 @@ public class Dealership {
         this.address = address;
         this.phone = phone;
         this.inventory = inventory;
+        this.getVehiclesByPrice = getVehiclesByPrice;
+        this.getVehiclesByMakeModel = getVehiclesByMakeModel;
+        this.getVehiclesByYear = getVehiclesByYear;
+        this.getVehiclesByColor = getVehiclesByColor;
+        this.getVehiclesByMileage = getVehiclesByMileage;
+        this.getVehiclesByType = getVehiclesByType;
+        this.removeVehicle = removeVehicle;
+
     }
 
 
@@ -56,10 +71,6 @@ public class Dealership {
         this.inventory = inventory;
     }
 
-//    public Dealership(){
-//
-//    }
-
     public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
 
@@ -68,5 +79,40 @@ public class Dealership {
     public ArrayList<Vehicle> getAllVehicles() {
         return inventory;
     }
+
+    public List<Vehicle> getVehiclesByPrice(double min, double max) {
+        return getVehiclesByPrice;
+    }
+
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        return getVehiclesByMakeModel;
+    }
+
+    public List<Vehicle> getVehiclesByYear(int min, int max) {
+
+        return getVehiclesByYear;
+    }
+
+    public List<Vehicle> getVehiclesByColor(String color) {
+
+
+        return getVehiclesByColor;
+    }
+
+    public List<Vehicle> getVehiclesByMileage(int min, int max) {
+
+        return getVehiclesByMileage;
+    }
+
+    public List<Vehicle> getVehiclesByType(String type) {
+
+        return getVehiclesByType;
+    }
+
+    public Object removeVehicle(int vin) {
+
+        return removeVehicle;
+    }
 }
+
 
