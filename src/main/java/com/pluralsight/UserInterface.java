@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -80,80 +81,123 @@ public class UserInterface {
    }
 
     private void processRemoveVehicleRequest() {
-        System.out.print("Enter VIN to remove: ");
-        int vin = scanner.nextInt();
+        System.out.print("what is the VIN number?: ");
+        int vin = InputCollector.promptForInt("Enter VIN to remove: ");
 
         dealership.removeVehicle(vin);
         System.out.println("Vehicle removed successfully!");
     }
 
     private void processAddVehicleRequest()  {
+        int vin = InputCollector.promptForInt("Enter VIN to add");
+          System.out.print("what is the VIN number?: ");
+
+        int year = InputCollector.promptForInt("Enter year");
+             System.out.print("what is the year?: ");
+
+        String make = InputCollector.promptForString("Enter the make");
+              System.out.print("what is the make?: ");
+
+        String model = InputCollector.promptForString("Enter the model");
+                System.out.print("what is the model?: ");
+
+        String vehicleType = InputCollector.promptForString("Enter vehicle type");
+                 System.out.print("what is the vehicle type?: ");
+
+        String color = InputCollector.promptForString("Enter color");
+                 System.out.print("what is the color?: ");
+
+        int odometer = InputCollector.promptForInt("Enter mileage");
+                  System.out.print("what is the mileage?: ");
+
+        double price = InputCollector.promptForDouble("enter a price");
+                    System.out.print("what is the price?: ");
+
+                    Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
+         dealership.addVehicle(vehicle);
+         System.out.println("Vehicle successfully added!");
 
     }
 
     private void processVehicleTypeRequest() {
-        System.out.print("Enter vehicle type: ");
-        String type = scanner.nextLine();
+        System.out.print(" what is the vehicle type: ");
+        String type = InputCollector.promptForString("Enter vehicle type: ");
 
-        List<Vehicle> vehicles = dealership.getVehiclesByType(type);
+        ArrayList<Vehicle> vehicles = dealership.getVehiclesByType(type);
         displayVehicles(vehicles);
     }
 
     private void processMileageRequest() {
-        System.out.print("Enter minimum mileage: ");
-        int min = scanner.nextInt();
-        System.out.print("Enter maximum mileage: ");
-        int max = scanner.nextInt();
+        System.out.print("what is the minimum mileage: ");
+        int min = InputCollector.promptForInt(" minimum mileage: ");
 
-        List<Vehicle> vehicles = dealership.getVehiclesByMileage(min, max);
+        System.out.print("what is the maximum mileage: ");
+        int max = InputCollector.promptForInt("Enter maximum mileage: ");
+
+        ArrayList<Vehicle> vehicles = dealership.getVehiclesByMileage(min, max);
         displayVehicles(vehicles);
     }
 
     private void processColorRequest() {
-        System.out.print("Enter color: ");
-        String color = scanner.nextLine();
+           System.out.print("What is the color of the vehicle?");
+           String color = InputCollector.promptForString("Enter color");
 
-        List<Vehicle> vehicles = dealership.getVehiclesByColor(color);
-        displayVehicles(vehicles);
+        ArrayList<Vehicle> vehiclesByColor = dealership.getVehiclesByColor(color);
+        displayVehicles(vehiclesByColor);
     }
-
+                                                          //   "Enter minimum year "
     private void processYearRequest() {
-        System.out.print("Enter minimum year: ");
-        int min = scanner.nextInt();
-        System.out.print("Enter maximum year: ");
-        int max = scanner.nextInt();
+        System.out.print("what is the minimum year that you are looking for? :");
+       int min = InputCollector.promptForInt("Enter minimum year ");
 
-        List<Vehicle> vehicles = dealership.getVehiclesByYear(min, max);
+        System.out.print("What is the maximum year you are looking for? ");
+          int max = InputCollector.promptForInt("Enter maximum year: ");
+
+        ArrayList<Vehicle> vehicles = dealership.getVehiclesByYear(min, max);
         displayVehicles(vehicles);
     }
 
     private void processMakeModelRequest() {
-        System.out.print("Enter make: ");
-        String make = scanner.nextLine();
-        System.out.print("Enter model: ");
-        String model = scanner.nextLine();
-        List<Vehicle> vehicle = dealership.getVehiclesByMakeModel(make, model);
+        System.out.print("What is the make: ");
+        String make = InputCollector.promptForString("Enter make: ");
+
+        System.out.print("What is the model: ");
+        String model = InputCollector.promptForString("Enter model: ");
+        ArrayList<Vehicle> vehicle = dealership.getVehiclesByMakeModel(make, model);
         displayVehicles(vehicle);
     }
 
     private void processPriceRequest() {
-        System.out.print("Enter minimum price: ");
-        double min = scanner.nextDouble();
-        System.out.print("Enter maximum price: ");
-        double max = scanner.nextDouble;
-        List<Vehicle> vehicles = dealership.getVehiclesByPrice(min, max);
+        System.out.print("What is the minimum price?: ");
+        double min = InputCollector.promptForDouble("Enter minimum price: ");
+        System.out.print("What is the maximum price: ");
+
+        double max = InputCollector.promptForDouble("Enter maximum price: ");
+        ArrayList<Vehicle> vehicles = dealership.getVehiclesByPrice(min, max);
         displayVehicles(vehicles);
     }
 
     private void processAllVehiclesRequest() {
-        List<Vehicle> vehicle = dealership.getAllVehicles();
+        ArrayList<Vehicle> vehicle = dealership.getAllVehicles();
         displayVehicles(vehicle);
     }
 
     private void displayVehicles(ArrayList<Vehicle> vehicles){
-        System.out.println(vehicle.getMake() + " " + vehicle.getModel() +
-    " (" + vehicle.getYear() + ") - $" + vehicle.getPrice() +
-   " - " + vehicle.getColor());
+
+        for(Vehicle vehicle:vehicles){
+            System.out.println(
+
+                    vehicle.getVin()
+                    + "|" + vehicle.getYear()
+                    + "|" + vehicle.getMake()
+                    + "|" + vehicle.getModel()
+                    + "|" + vehicle.getVehicleType()
+                    + "|" + vehicle.getColor()
+                    + "|" + vehicle.getOdometer()
+                    + "|" +vehicle.getPrice());
+
+        }
+
 
 
 

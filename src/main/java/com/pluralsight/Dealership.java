@@ -11,27 +11,21 @@ public class Dealership {
    private String address;
    private String phone;
    private ArrayList<Vehicle> inventory;
-   private ArrayList<Vehicle> getVehiclesByPrice;
-    private ArrayList<Vehicle> getVehiclesByMakeModel;
-    private ArrayList<Vehicle> getVehiclesByYear;
-    private ArrayList<Vehicle> getVehiclesByColor;
-    private ArrayList<Vehicle> getVehiclesByMileage;
-    private ArrayList<Vehicle> getVehiclesByType;
-    private Object removeVehicle;
+   //private ArrayList<Vehicle> getVehiclesByPrice;
+   // private ArrayList<Vehicle> getVehiclesByMakeModel;
+   // private ArrayList<Vehicle> getVehiclesByYear;
+    //private ArrayList<Vehicle> getVehiclesByColor;
+    //private ArrayList<Vehicle> getVehiclesByMileage;
+    //private ArrayList<Vehicle> getVehiclesByType;
+   // private Object removeVehicle;
 
 //CONSTRUCTOR.
     public Dealership(String name, String address, String phone ){
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.inventory = inventory;
-        this.getVehiclesByPrice = getVehiclesByPrice;
-        this.getVehiclesByMakeModel = getVehiclesByMakeModel;
-        this.getVehiclesByYear = getVehiclesByYear;
-        this.getVehiclesByColor = getVehiclesByColor;
-        this.getVehiclesByMileage = getVehiclesByMileage;
-        this.getVehiclesByType = getVehiclesByType;
-        this.removeVehicle = removeVehicle;
+        this.inventory = new ArrayList<>();
+
 
     }
 
@@ -80,39 +74,41 @@ public class Dealership {
         return inventory;
     }
 
-    public List<Vehicle> getVehiclesByPrice(double min, double max) {
-        return getVehiclesByPrice;
+    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
+        return null;
     }
 
-    public List<Vehicle> getVehiclesByMakeModel(String make, String model) {
-        return getVehiclesByMakeModel;
+    public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
+        return null;
     }
 
-    public List<Vehicle> getVehiclesByYear(int min, int max) {
+    public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
 
-        return getVehiclesByYear;
+        return null;
     }
 
-    public List<Vehicle> getVehiclesByColor(String color) {
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
 
 
-        return getVehiclesByColor;
+        return null;
     }
 
-    public List<Vehicle> getVehiclesByMileage(int min, int max) {
+    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
 
-        return getVehiclesByMileage;
+        return null;
     }
 
-    public List<Vehicle> getVehiclesByType(String type) {
+    public ArrayList<Vehicle> getVehiclesByType(String type) {
 
-        return getVehiclesByType;
+        return null;
     }
 
     public Object removeVehicle(int vin) {
 
-        return removeVehicle;
+        return null;
     }
+
+
 }
 
 
