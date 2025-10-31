@@ -1,7 +1,5 @@
 package com.pluralsight;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class DealershipFileManager {
 
@@ -78,14 +76,38 @@ public class DealershipFileManager {
     //try and catch
     //needs parameter so the method knows what to work with
     //TODO add locgic of saving dealership
-    public void saveDealership(){
 
+    public void saveDealership(Dealership dealership){
+        try {
+            FileWriter fileWriter = new FileWriter("inventory.csv");
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+
+            String dealershipInfo =
+                    dealership.getName()
+                            + "|" + dealership.getAddress()
+                            + "|" + dealership.getPhone();
+            bufferedWriter.write(dealershipInfo);
+
+            if (dealership.getAllVehicles() != null) {
+                for (Vehicle v : dealership.getAllVehicles()) {
+                    bufferedWriter.newLine();
+                    bufferedWriter.write(v.getVin()
+                            + "|" + v.getYear()
+                            + "|" + v.getMake()
+                            + "|" + v.getModel()
+                            + "|" + v.getVehicleType()
+                            + "|" + v.getColor()
+                            + "|" + v.getOdometer()
+                            + "|" + v.getPrice());
+
+                }
+
+                bufferedWriter.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            }
+
+        }
     }
-
-    //public Dealership getDealership() {
-    //}
-}
-
-
-
-

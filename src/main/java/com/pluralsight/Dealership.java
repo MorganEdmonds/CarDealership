@@ -8,13 +8,13 @@ public class Dealership {
 // This is what a dealership is made up of.
 
     private String name;
-   private String address;
-   private String phone;
-   private ArrayList<Vehicle> inventory;
+    private String address;
+    private String phone;
+    private ArrayList<Vehicle> inventory;
 
 
-//CONSTRUCTOR.
-    public Dealership(String name, String address, String phone ){
+    //CONSTRUCTOR.
+    public Dealership(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
@@ -61,7 +61,12 @@ public class Dealership {
 
 
     //User Interface methods
-    public void addVehicle(Vehicle vehicle){
+     public void removeVehicle(Vehicle vehicle){
+        inventory.remove(vehicle);
+
+        }
+
+    public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
 
     }
@@ -69,7 +74,7 @@ public class Dealership {
     public ArrayList<Vehicle> getAllVehicles() {
         return inventory;
     }
-        //todo
+
     public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
 
         //make a new "Array list that has all the vehicles with the min and max that is asked for"
@@ -87,8 +92,6 @@ public class Dealership {
 
     }
 
-
-            //TODO
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model) {
 
         ArrayList<Vehicle> matchingVehicles = new ArrayList<>();
@@ -99,59 +102,64 @@ public class Dealership {
                 matchingVehicles.add(vehicle);
 
             }
-            //return null;
+
         }
         return matchingVehicles;
     }
 
-    //TODO
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max) {
 
-//        ArrayList<Vehicle> matcingVehicles = new ArrayList<>();
-//        for(Vehicle vehicle: inventory ){
-//            if (vehicle.getYear() >=  && vehicle.getYear() <= maxYear){
-//                yearResults.add(vehicle);
-//            }
-//        }
+        ArrayList<Vehicle> yearOutcome = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getYear() >= min && vehicle.getYear() <= max) {
+                yearOutcome.add(vehicle);
+            }
+        }
 
-        return null;
+        return yearOutcome;
     }
-            //TODO
+
     public ArrayList<Vehicle> getVehiclesByColor(String color) {
         ArrayList<Vehicle> colorOutcome = new ArrayList<>();
-        for(Vehicle vehicle: inventory){
-            if(vehicle.getColor().equals(color)){
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getColor().equals(color)) {
                 colorOutcome.add(vehicle);
+            }
+        }
+        return colorOutcome;
+    }
+
+    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
+        ArrayList<Vehicle> mileageResult = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getOdometer() >= min && vehicle.getOdometer() <= max) {
+                mileageResult.add(vehicle);
+
             }
 
 
-        return colorOutcome;
-    }
-    //TODO
-    public ArrayList<Vehicle> getVehiclesByMileage(int min, int max) {
-            ArrayList<Vehicle> mileageResult = new ArrayList<>();
-            for(Vehicle vehicle: inventory){
-                if(vehicle.getOdometer() >= min && vehicle.getOdometer() <= max){
-                    mileageResult.add(vehicle);
 
         }
-
         return mileageResult;
-
-    }
-    //TODO
-    public ArrayList<Vehicle> getVehiclesByType(String type) {
-
-        return null;
     }
 
-    //todo turn void and has no parameters
-    public void removeVehicle(int vin) {
+    public ArrayList<Vehicle> getVehiclesByType (String vehicleType){
+        ArrayList<Vehicle> vehicleTypeResult = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVehicleType().contains(vehicleTypeResult)) {
+                vehicleTypeResult.add(vehicle);
+            }
 
 
+
+
+        }
+        return vehicleTypeResult;
     }
 
 
-}
+
+
+} //End of Dealership class
 
 
