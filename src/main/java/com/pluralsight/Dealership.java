@@ -1,7 +1,6 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Dealership {
 
@@ -61,8 +60,13 @@ public class Dealership {
 
 
     //User Interface methods
-     public void removeVehicle(Vehicle vehicle){
-        inventory.remove(vehicle);
+     public void removeVehicle(int vin){
+         for (int i = 0; i < inventory.size(); i++) {
+             if (inventory.get(i).getVin() == vin) {
+                 inventory.remove(i);
+                 return;
+             }
+         }
 
         }
 
@@ -97,7 +101,7 @@ public class Dealership {
         ArrayList<Vehicle> matchingVehicles = new ArrayList<>();
 
         for (Vehicle vehicle : inventory) {
-            if (vehicle.getMake().equalsIgnoreCase(model) &&
+            if (vehicle.getMake().equalsIgnoreCase(make) &&
                     vehicle.getModel().equalsIgnoreCase(model)) {
                 matchingVehicles.add(vehicle);
 
@@ -146,7 +150,7 @@ public class Dealership {
     public ArrayList<Vehicle> getVehiclesByType (String vehicleType){
         ArrayList<Vehicle> vehicleTypeResult = new ArrayList<>();
         for (Vehicle vehicle : inventory) {
-            if (vehicle.getVehicleType().contains(vehicleTypeResult)) {
+            if (vehicle.getVehicleType().contains(vehicleType)) {
                 vehicleTypeResult.add(vehicle);
             }
 
