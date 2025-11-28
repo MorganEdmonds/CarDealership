@@ -23,18 +23,18 @@ public class UserInterface {
 //        Scanner scanner = new Scanner(System.in);
 
         while(true){
-            System.out.print("\n======= DEALERSHIP MENU=======");
-            System.out.print("1. Get all vehicles");
-            System.out.print("2.  Search by price");
-            System.out.print("3. Search by make/model");
-            System.out.print("4. Search by year");
+            System.out.println("\n======= DEALERSHIP MENU=======");
+            System.out.println("1. Get all vehicles");
+            System.out.println("2.  Search by price");
+            System.out.println("3. Search by make/model");
+            System.out.println("4. Search by year");
             System.out.println("5. Search by color");
             System.out.println("6. Search by mileage");
             System.out.println("7. Search by vehicle type");
             System.out.println("8. Add a vehicle");
             System.out.println("9. Remove a vehicle");
             System.out.println("0. Quit");
-            System.out.print("\nEnter your choice: ");
+            System.out.println("\nEnter your choice: ");
 
 
             int choice = InputCollector.promptForInt("Enter a number command");
@@ -85,11 +85,12 @@ public class UserInterface {
         int vin = InputCollector.promptForInt("Enter VIN to remove: ");
 
 
-        //for loop to look through ALL vehicles in dealership
-        //if one matches the vin given then remove it.
-        //if you can't find it , say so.
-
+        //for loop to look through ALL vehicles in dealership //if one matches the vin given then remove it.//if you can't find it , say so.
         dealership.removeVehicle(vin);
+
+        DealershipFileManager manager = new DealershipFileManager();
+        manager.saveDealership(dealership);
+
         System.out.println("Vehicle removed successfully!");
     }
 
@@ -120,6 +121,10 @@ public class UserInterface {
 
         Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
          dealership.addVehicle(vehicle);
+
+        DealershipFileManager manager = new DealershipFileManager();
+        manager.saveDealership(dealership);
+
          System.out.println("Vehicle successfully added!");
 
     }
@@ -144,8 +149,10 @@ public class UserInterface {
     }
 
     private void processColorRequest() {
-           String color = InputCollector.promptForString("Enter color");
-        System.out.print("What is the color of the vehicle?");
+        System.out.print("What is the color of the vehicle? ");
+
+           String color = InputCollector.promptForString(" Enter color");
+
 
         ArrayList<Vehicle> vehiclesByColor = dealership.getVehiclesByColor(color);
         displayVehicles(vehiclesByColor);

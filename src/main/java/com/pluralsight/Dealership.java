@@ -60,13 +60,12 @@ public class Dealership {
 
 
     //User Interface methods
-     public void removeVehicle(int vin){
-         for (int i = 0; i < inventory.size(); i++) {
-             if (inventory.get(i).getVin() == vin) {
-                 inventory.remove(i);
-                 return;
-             }
-         }
+     public void removeVehicle(int vehicle){
+         DealershipFileManager manager = new DealershipFileManager();
+         manager.saveDealership(this);  // Use 'this' to refer to current Dealership
+
+         System.out.println("Vehicle successfully added!");
+//        inventory.remove(vehicle);
 
         }
 
