@@ -10,7 +10,7 @@ public class DealershipFileManager {
 
         try {
             // create a FileReader object connected to the File
-            FileReader fileReader = new FileReader("Inventory.csv");
+            FileReader fileReader = new FileReader("inventory.csv");
 
             // create a BufferedReader to manage input stream
             BufferedReader bufReader = new BufferedReader(fileReader);
