@@ -95,29 +95,30 @@ public class UserInterface {
     }
 
     private void processAddVehicleRequest()  {
-        System.out.print("what is the VIN number?: ");
+        System.out.print(" what is the VIN number?: ");
         int vin = InputCollector.promptForInt("Enter VIN to add");
 
-        int year = InputCollector.promptForInt("Enter year");
-             System.out.print("what is the year?: ");
+        System.out.print(" what is the year?: ");
+        int year = InputCollector.promptForInt(" Enter year");
 
+        System.out.print(" what is the make?: ");
         String make = InputCollector.promptForString("Enter the make");
-              System.out.print("what is the make?: ");
 
-        String model = InputCollector.promptForString("Enter the model");
-                System.out.print("what is the model?: ");
+        System.out.print(" what is the model?: ");
+        String model = InputCollector.promptForString(" Enter the model");
 
+        System.out.print(" what is the vehicle type?: ");
         String vehicleType = InputCollector.promptForString("Enter vehicle type");
-                 System.out.print("what is the vehicle type?: ");
 
-        String color = InputCollector.promptForString("Enter color");
-                 System.out.print("what is the color?: ");
+        System.out.print( " what is the color?: ");
+        String color = InputCollector.promptForString(" Enter color ");
 
-        int odometer = InputCollector.promptForInt("Enter mileage");
-                  System.out.print("what is the mileage?: ");
+        System.out.print( " what is the mileage?: ");
+        int odometer = InputCollector.promptForInt(" Enter mileage ");
 
-        double price = InputCollector.promptForDouble("enter a price");
-                    System.out.print("what is the price?: ");
+        System.out.print( " what is the price?: ");
+        double price = InputCollector.promptForDouble(" enter a price ");
+
 
         Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
          dealership.addVehicle(vehicle);
